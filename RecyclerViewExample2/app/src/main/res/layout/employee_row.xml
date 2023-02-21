@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/empRowItem">
+
+    <data>
+        <variable
+            name="employee"
+            type="com.example.recyclerviewexample.Employee" />
+    </data>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="?listPreferredItemHeight"
+        app:cardElevation="4dp"
+        android:layout_margin="5dp"
+        app:contentPadding="4dp"
+        app:cardCornerRadius="8dp">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/empName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                tools:text="Employee Name"
+                android:text="@{employee.name}"
+                android:textSize="16sp"
+                android:textColor="@color/black"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <TextView
+                android:id="@+id/empDesignation"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                tools:text="Employee Designaiton"
+                android:text="@{employee.designation}"
+                app:layout_constraintTop_toBottomOf="@id/empName"
+                app:layout_constraintStart_toStartOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.cardview.widget.CardView>
+</layout>
