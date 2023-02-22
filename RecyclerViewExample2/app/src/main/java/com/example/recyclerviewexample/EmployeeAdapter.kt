@@ -6,8 +6,8 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.example.recyclerviewexample.databinding.EmployeeRowBinding
 
-class EmployeeAdapter :
-    androidx.recyclerview.widget.ListAdapter<Employee, EmployeeAdapter.EmployeeViewHolder>(
+class EmployeeAdapter(val callback: (Employee) -> Unit)
+    : androidx.recyclerview.widget.ListAdapter<Employee, EmployeeAdapter.EmployeeViewHolder>(
         EmployeeDiffUtil()
     ) {
 
@@ -38,6 +38,9 @@ class EmployeeAdapter :
     override fun onBindViewHolder(holder: EmployeeViewHolder, position: Int) {
         val employee = getItem(position)
         holder.bind(employee)
+        holder.itemView.setOnClickListener {
+            callback(employee)
+        }
     }
 
 
